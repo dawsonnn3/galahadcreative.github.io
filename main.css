@@ -801,3 +801,28 @@ vertical-align: middle;
 .notice{
   color: #afafaf;
 }
+.webdev{
+  padding-bottom:40px;
+}
+
+.services-highlight{
+  padding-top:40px;
+  padding-bottom:40px;
+}
+.elegance-text{
+  padding-top:150px;
+}
+@media screen and (max-width: 1200px) {
+  .elegance-text{
+    padding-top:100px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .elegance-text{
+    padding-top:0px;
+    padding-bottom:40px;
+  }
+}
+.elegance-subtext{
+  font-size:18px;
+}
