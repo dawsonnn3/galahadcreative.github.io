@@ -104,32 +104,28 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <form name="sentMessage" id="contactForm" novalidate="">
+                            <form name="sentMessage" id="contactForm" class="AjaxForm" ovalidate="" action="https://docs.google.com/forms/d/e/1FAIpQLScVhKgyn-yTMs7j7_pq8ZI3UkRQsq_EVoBQXxzie4HIiXdwdg/formResponse">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Name *" id="name" required="" data-validation-required-message="Please enter your name.">
+                                            <input type="text" class="form-control" placeholder="Your Name *" id="name" required="" data-validation-required-message="Please enter your name." name="entry.146956313">
                                             <p class="help-block text-danger"></p>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required="" data-validation-required-message="Please enter your phone number.">
+                                            <input type="email" class="form-control" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address." name="entry.2069463876">
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <textarea class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
+                                            <textarea class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message." name="entry.312357897"></textarea>
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="col-lg-12 text-center">
                                         <div id="success"></div>
-                                        <button type="submit" class="btn btn-xl get">Send Message</button>
+                                        <button type="submit" class="btn btn-xl btn-default get formsubmit">Send Message</button>
                                     </div>
                                 </div>
                             </form>
@@ -154,7 +150,7 @@
               <div class="container">
                 <div class="elegance-subtext" align="center">
                 Are you looking for a quote on a project?<br/><br/>
-              <a href="#" class="hvr-shutter-out-horizontal featurebtns" style="border:0;">Click Here</a>    </div><br/><Br/>
+              <a href="quote.html" class="hvr-shutter-out-horizontal featurebtns" style="border:0;">Click Here</a>    </div><br/><Br/>
               </div>
             </div>
 
@@ -210,6 +206,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(document).on('submit', 'form.AjaxForm', function() {
+            $.ajax({
+                url     : $(this).attr('action'),
+                type    : $(this).attr('method'),
+                dataType: 'jsonp',
+                data    : $(this).serialize(),
+                success : function( data ) {
+                             alert('Submitted');
+                },
+                error   : function( xhr, err ) {
+                             alert('Error');
+                }
+            });
+            return false;
+        });
+        $( ".formsubmit" ).click(function() {
+          window.location.replace("complete.html");
+  });
+        </script>
     <script>
 function myFunction() {
     var x = document.getElementById("topnav");
